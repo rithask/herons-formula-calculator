@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+    <div class="mb-4">
+        <p class="text-center h1">Heron's formula</p>
+    </div>
+    <form action="/calculate" method="post">
+        <!-- <div class="mb-2">
+            <input type="number" name="triangleNo" class="form-control" placeholder="Triangle number">
+        </div> -->
+        <div class="mb-2">
+            <input autocomplete="off" class="form-control" name="a" placeholder="a" type="number" step="any">
+        </div>
+        <div class="mb-2">
+            <input autocomplete="off" class="form-control" name="b" placeholder="b" type="number" step="any">
+        </div>
+        <div class="mb-2">
+            <input autocomplete="off" class="form-control" name="c" placeholder="c" type="number" step="any">
+        </div>
+        <button class="btn btn-primary" type="submit">Calculate</button>
+    </form>
+    <div class="mt-2">
+        <a href="/results"><button class="btn btn-primary">Show Results</button></a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+    Results
+
+{% endblock %}
+
+{% block main %}
+
+    <div class="table-responsive">
+        <table class="table tablestriped">
+            <thead>
+                <th class="text-start">Triangle</th>
+                <th class="text-end">a</th>
+                <th class="text-end">b</th>
+                <th class="text-end">c</th>
+                <th class="text-end">s</th>
+                <th class="text-end">s - a</th>
+                <th class="text-end">s - b</th>
+                <th class="text-end">s - c</th>
+                <th class="text-end">Area</th>
+            </thead>
+            <tbody>
+                {% for triangle in results %}
+                    <tr>
+                        <td class="text-start">{{ triangle.triangle_no }}</td>
+                        <td class="text-end text-secondary">{{ triangle.a }}</td>
+                        <td class="text-end text-secondary">{{ triangle.b }}</td>
+                        <td class="text-end text-secondary">{{ triangle.c }}</td>
+                        <td class="text-end text-success">{{ triangle.s }}</td>
+                        <td class="text-end text-danger">{{ triangle['s - a'] }}</td>
+                        <td class="text-end text-danger">{{ triangle['s - b'] }}</td>
+                        <td class="text-end text-danger">{{ triangle['s - c'] }}</td>
+                        <td class="text-end">{{ triangle.area }}</td>
+                        <td>
+                            <form action="/results" method="post">
+                                <input type="hidden" name="triangle_no" value="{{ triangle.triangle_no }}">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-2">
+        <a href="/"><button class="btn btn-primary">Home</button></a>
+    </div>
+
+{% endblock %}
