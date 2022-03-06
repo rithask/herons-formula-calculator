@@ -1,12 +1,14 @@
-from queue import Empty
-from unittest import expectedFailure
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request
+from os.path import exists
 import secrets
 
 secret = secrets.token_urlsafe(32)
 
+db_file = "values.db"
 # Configure CS50 Library to use SQLite database
+if not exists(db_file):
+    open(db_file, 'a')
 db = SQL('sqlite:///values.db')
 
 # Configure application
@@ -61,7 +63,7 @@ def results():
             results = db.execute("SELECT * FROM triangle")
             return render_template('results.html', results=results)
         except:
-            flash("No resutls to show")
+            flash("No results to show")
             return redirect('/')
     if request.method == 'POST':
         triangle_no = int(request.form.get('triangle_no'))
