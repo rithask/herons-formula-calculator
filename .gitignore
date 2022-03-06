@@ -1,0 +1,8 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore already created values.db
+values.db
+
+# Ignore python caches
+__pycache__
