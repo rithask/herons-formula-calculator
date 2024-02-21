@@ -72,3 +72,6 @@ def results():
 		triangle_no = int(request.form.get('triangle_no'))
 		db.execute("DELETE FROM triangle WHERE triangle_no = ?", triangle_no)
 		return redirect('/results')
+
+if __name__=="__main__":
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
