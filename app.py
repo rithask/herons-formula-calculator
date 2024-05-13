@@ -72,3 +72,4 @@ def results():
 		triangle_no = int(request.form.get('triangle_no'))
 		db.execute("DELETE FROM triangle WHERE triangle_no = ?", triangle_no)
 		return redirect('/results')
+	
