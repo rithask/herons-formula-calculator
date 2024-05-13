@@ -12,11 +12,16 @@ You can specify a port of your own.
 
 > Alternatively, you could run the 'build.sh' script to build and run the docker container automatically. Run `chmod +x build.sh` first to give the file permission to execute.
 ## Installing manually
-### 1. Install all the required dependencies
+### 1. Make sure python is installed
 Install [Python](https://python.org) and [pip](https://https://pip.pypa.io/en/stable/installation/)
 ### 2. Install the requirements
 Run `pip install -r requirements.txt` in the git directory
 ### 3. Start webserver
-Run `gunicorn -w 4 app:app` and open the link shown in your terminal window
+Run `gunicorn app:app` and open the link shown in your terminal window
 
 That's all you have to do to get this running
+
+# Tech stack
+- Flask 
+- Bootstrap 5.1.3
+- SQLite3
