@@ -6,3 +6,6 @@ values.db
 
 # Ignore python caches
 __pycache__
+
+logs/
+.env
